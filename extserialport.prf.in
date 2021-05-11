@@ -8,14 +8,14 @@ defineReplace(qextLibraryName) {
           else:win32:LIBRARY_NAME = \$\${LIBRARY_NAME}d
       }
    }
-   return(\$\$LIBRARY_NAME)
+   return(\$\$LIBRARY_NAME\$\${QExtLibrary_VERSION})
 }
 
 !!IF qesp_mac_framework
 LIBS += -framework $$QESP_LIB_BASENAME
 INCLUDEPATH += $$[QT_INSTALL_LIBS]/$${QESP_LIB_BASENAME}.framework/Headers
 !!ELSE
-LIBS += -l\$\$qextLibraryName($$QESP_LIB_BASENAME)
+LIBS += -L$$[QT_INSTALL_LIBS] -l\$\$qextLibraryName($$QESP_LIB_BASENAME)
 INCLUDEPATH += $$[QT_INSTALL_HEADERS]/QtExtSerialPort
 !!ENDIF
 
