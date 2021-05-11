@@ -8,7 +8,7 @@ defineReplace(qextLibraryName) {
           else:win32:LIBRARY_NAME = \$\${LIBRARY_NAME}d
       }
    }
-   return(\$\$LIBRARY_NAME\$\${QExtLibrary_VERSION})
+   return(\$\$LIBRARY_NAME)
 }
 
 !!IF qesp_mac_framework
